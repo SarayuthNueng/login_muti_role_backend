@@ -18,6 +18,7 @@ const store = new sessionStore({
     db: db
 });
 
+// open comment for create db
 // (async()=>{
 //     await db.sync();
 // })();
@@ -42,6 +43,7 @@ app.use(UserRoute);
 app.use(ProductRoute);
 app.use(AuthRoute);
 
+// open comment for create db
 // store.sync();
 
 app.listen(process.env.APP_PORT, ()=> {

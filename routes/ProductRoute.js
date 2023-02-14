@@ -1,3 +1,4 @@
+// keep route is product page 
 import express from "express";
 import { getProductById, getProducts, createProduct, updateProduct, deleteProduct } from "../controllers/Products.js";
 import { verifyUser } from "../middleware/AuthUser.js"

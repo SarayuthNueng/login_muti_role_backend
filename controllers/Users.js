@@ -1,6 +1,8 @@
+// keep function is user
 import User from "../models/UserModel.js";
 import argon2 from "argon2";
 
+// get all user function
 export const getUsers = async(req, res) =>{
     try {
         const response = await User.findAll({
@@ -12,6 +14,7 @@ export const getUsers = async(req, res) =>{
     }
 }
 
+// get one user by id function
 export const getUserById = async(req, res) =>{
     try {
         const response = await User.findOne({
@@ -26,6 +29,7 @@ export const getUserById = async(req, res) =>{
     }
 }
 
+// create user function
 export const createUser = async(req, res) =>{
     const {name, email, password, confPassword, role} = req.body;
     if(password !== confPassword) return res.status(400).json({msg:"Password and Confirm Password not match"});
@@ -43,6 +47,8 @@ export const createUser = async(req, res) =>{
     }
 }
 
+
+// update user function
 export const updateUser = async(req, res) =>{
     const user = await User.findOne({
         where: {
@@ -75,6 +81,7 @@ export const updateUser = async(req, res) =>{
     }
 }
 
+// delete user function
 export const deleteUser = async(req, res) =>{
     const user = await User.findOne({
         where: {

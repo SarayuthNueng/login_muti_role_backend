@@ -1,6 +1,8 @@
+// keep function is authen
 import User from "../models/UserModel.js";
 import argon2 from "argon2";
 
+// login function
 export const Login = async (req, res) =>{
     const user = await User.findOne({
         where: {
@@ -18,6 +20,7 @@ export const Login = async (req, res) =>{
     res.status(200).json({uuid, name, email, role});
 }
 
+// user view detail myself function
 export const Me = async (req, res) =>{
     if(!req.session.userId){
         return res.status(401).json({msg: "กรุณาเข้าสู่ระบบบัญชีของคุณ"})
@@ -32,6 +35,7 @@ export const Me = async (req, res) =>{
     res.status(200).json(user);
 }
 
+// logout function
 export const Logout = (req,res) =>{
     req.session.destroy((err)=>{
         if(err) return res.status(400).json({msg: "ไม่ได้ออกจากระบบ"})

@@ -1,7 +1,9 @@
+// keep function is product
 import Product from "../models/ProductModel.js";
 import User from "../models/UserModel.js"
 import { Op } from "sequelize";
 
+// getproduct function
 export const getProducts = async (req, res) =>{
     try {
         let response;
@@ -31,6 +33,7 @@ export const getProducts = async (req, res) =>{
     }
 }
 
+// getproduct by one function
 export const getProductById = async (req, res) =>{
     try {
         const product = await Product.findOne({
@@ -70,6 +73,7 @@ export const getProductById = async (req, res) =>{
     }
 }
 
+// create product function
 export const createProduct = async (req, res) =>{
     const {name, price} = req.body;
     try{
@@ -84,6 +88,7 @@ export const createProduct = async (req, res) =>{
     }
 }
 
+// update product function by admin role
 export const updateProduct = async (req, res) =>{
     try {
         const product = await Product.findOne({
@@ -113,6 +118,7 @@ export const updateProduct = async (req, res) =>{
     }
 }
 
+// delete product function
 export const deleteProduct = async (req, res) =>{
     try {
         const product = await Product.findOne({

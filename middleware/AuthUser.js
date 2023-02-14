@@ -1,5 +1,6 @@
 import User from "../models/UserModel.js"
 
+// function verify user role
 export const verifyUser = async (req, res, next) =>{
     if(!req.session.userId){
         return res.status(401).json({msg: "กรุณาเข้าสู่ระบบบัญชีของคุณ"})
@@ -15,7 +16,7 @@ export const verifyUser = async (req, res, next) =>{
     next();
 }
 
-
+// function verify admin role
 export const adminOnly = async (req, res, next) =>{
     const user = await User.findOne({
         where:{
